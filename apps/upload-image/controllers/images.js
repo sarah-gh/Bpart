@@ -6,12 +6,7 @@ const { sendFail } = require('../../../utils/response-handler')
 process.chdir(__dirname)
 
 function getPhoto(req, res) {
-    const qs = req.qs;
-    const pathName = req.pathName.replace('/api/', '')
-    if (!queryStringValidate(qs, [])) {
-        sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });
-        return
-    }
+    const pathName = req.path.replace('/api/', '')
     const photoPath = `../../public/${pathName}`
     const extname = path.extname(photoPath).replace('.', '')
     try {

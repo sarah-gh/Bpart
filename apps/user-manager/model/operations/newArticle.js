@@ -24,14 +24,14 @@ async function addArticle(postData, userId) {
     let footerPhoto = null;
 
     if (postData.headerPhoto) {
-        let fileName = `${articleId}_header.png`;
+        let fileName = `${articleId}_header.jpg`;
         await saveImage(postData.headerPhoto, fileName);
-        headerPhoto = `'http://${c.env.HOST}:${c.env.PORT}/api/images/posts/${articleId}_header.png'`
+        headerPhoto = `'http://${c.env.HOST}:${c.env.PORT}/api/images/posts/${articleId}_header.jpg'`
     }
     if (postData.footerPhoto) {
-        fileName = `${articleId}_footer.png`;
+        fileName = `${articleId}_footer.jpg`;
         await saveImage(postData.footerPhoto, fileName);
-        footerPhoto = `'http://${c.env.HOST}:${c.env.PORT}/api/images/posts/${articleId}_footer.png'`
+        footerPhoto = `'http://${c.env.HOST}:${c.env.PORT}/api/images/posts/${articleId}_footer.jpg'`
     }
     query = `
     UPDATE "article" 
@@ -56,6 +56,6 @@ async function addArticle(postData, userId) {
 module.exports = { addArticle }
 
 function saveImage(base64, name) {
-    var base64Data = base64.replace(/^data:image\/png;base64,/, "");
+    var base64Data = base64.replace(/^data:image\/jpg;base64,/, "");
     fs.writeFileSync(`../../public/images/posts/${name}`, base64Data, "base64" );
 }
