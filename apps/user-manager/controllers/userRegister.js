@@ -5,10 +5,10 @@ const { isUsernameAvailable } = require('../model/checkUsername')
 const { generateToken } = require('../../../utils/tokenManager');
 
 async function userRegister(req, res) {
-    const inputData = req.data;
+    const inputData = req.body;
     let isAvailable;
     try {
-        isAvailable = await isUsernameAvailable(req.data.username);
+        isAvailable = await isUsernameAvailable(req.body.username);
     } catch (err) {
         return sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });
     }

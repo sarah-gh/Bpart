@@ -12,7 +12,7 @@ async function insertNewUser(data) {
             privacy, 
             email,
             phoneNumber,
-            fontFalmily,
+            fontFamily,
             fontSize,
             fontColor
             )
@@ -30,6 +30,7 @@ async function insertNewUser(data) {
                 'black'
             ) 
             RETURNING *;`;
+    console.log(query);
     const response = await executeQuery(query);
     return response.rows[0];
 }
