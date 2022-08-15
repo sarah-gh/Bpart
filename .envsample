@@ -1,0 +1,8 @@
+USERNAME=some-username
+PASSWORD=some-password
+DATABASE=some-database
+DATABASEHOST=some-hostname
+DATABASEPORT=some-port
+HOST=some-host
+PORT=some-port
+TOKEN_KEY=some TOKEN_KEY

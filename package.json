@@ -1,0 +1,26 @@
+{
+  "name": "web-api",
+  "version": "1.0.0",
+  "description": "an api to send data from server to client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pioneers",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.6.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.16.3",
+    "jsonschema": "^1.4.0",
+    "pg": "^8.7.1",
+    "redis": "^3.1.2",
+    "util": "^0.12.4",
+    "pioneers-router": "^1.0.22",
+    "pioneers-server": "^1.0.3",
+    "pioneers-token-manager": "^1.0.3",
+    "pionners-dataparser": "^1.0.2"
+  }
+}
