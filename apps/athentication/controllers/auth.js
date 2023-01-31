@@ -25,9 +25,9 @@ async function userLogin(req, res) {
         console.log('ERROR ON LOGIN: ',err)
         return sendFail(res, c.statusCodes.UNAUTHORIZED, { message: c.errors.UNAUTHORIZED.message })
     }
-    // if (!isValidUser(userData, password)) {
-    //     return sendFail(res, c.statusCodes.UNAUTHORIZED, { message: c.errors.UNAUTHORIZED.message })
-    // }
+    if (!isValidUser(userData, password)) {
+        return sendFail(res, c.statusCodes.UNAUTHORIZED, { message: c.errors.UNAUTHORIZED.message })
+    }
     const token = generateToken({ "userId": userData.userid })
     redis.dataStorage.set( userData.userid , JSON.stringify(token));
     return sendOk(res, token);

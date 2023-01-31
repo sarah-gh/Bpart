@@ -2,6 +2,7 @@ const c = require('../config');
 const { readPosts } = require('../model/readPosts');
 const { sendOk, sendFail } = require('../../../utils/response-handler');
 const { queryStringValidate } = require('../../../utils/queryValidate');
+const { verifyToken } = require('../../../utils/tokenManager')
 
 function getSinglePost(req, res) {
     const articleId = req.query.postId;
@@ -21,7 +22,9 @@ function getPosts(req, res) {
     if (qs.offset) {
         limit += ` offset ${qs.offset}`
     }
-    let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
+    const token = verifyToken(req, res)
+    let userId = token ? +token.userId : 0;
+    // let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
     readPosts(condition, limit, userId)
         .then(data => sendOk(res, data))
         .catch((e) => {

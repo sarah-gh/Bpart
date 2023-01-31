@@ -1,5 +1,6 @@
 const { executeQuery } = require('../../../services/queryExecutor')
 async function readPosts(condition, limit, userId) {
+    console.log('readPosts 1', condition, limit, userId);
     let query = `
             SELECT
                 (select count(*) from "save" where "article".articleId = "save".articleid and "save".userid = ${userId} ) as isSaved,
@@ -23,6 +24,7 @@ async function readPosts(condition, limit, userId) {
                 ON "article".userId = "user".userId
             WHERE ${condition} ORDER BY "article".articleId DESC limit ${limit} ;`
     let Results = await executeQuery(query);
+    
     const posts = Results.rows;
     for (element of posts) {
         query = `SELECT "tag".tagName from "tag" WHERE "tag".articleId = ${element.articleid}`
