@@ -2,8 +2,10 @@ const c = require('../config');
 const { readSavedMessages } = require('../model/savedMessages');
 const { sendOk, sendFail } = require('../../../utils/response-handler');
 const { queryStringValidate } = require('../../../utils/queryValidate');
+const { verifyToken } = require('../../../utils/tokenManager')
 
 function getSavedMessages(req, res) {
+    verifyToken(req, res)
     const qs = req.qs;
     if (!queryStringValidate(qs, ['limit', 'offset'])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });

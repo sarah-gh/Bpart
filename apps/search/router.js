@@ -1,13 +1,8 @@
 
-const dataParser = require('pionners-dataparser')
 const {searchInputQuery} = require('./controllers/search')
-const {verifyToken} = require('../../utils/tokenManager')
+const express = require('express');
+const router = express.Router();
 
-module.exports.routes = {
-    '/api/search': {
-        GET: {
-            function: searchInputQuery,
-            middlewares: [dataParser, verifyToken]
-        }
-    },
-};
+router.get('/api/search', searchInputQuery);
+
+module.exports = router;

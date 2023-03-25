@@ -2,10 +2,11 @@ const c = require('../config')
 const { queryStringValidate } = require('../../../utils/queryValidate');
 const { sendOk, sendFail } = require('../../../utils/response-handler');
 const { searchQuery } = require('../model/searchResponse')
+const { verifyToken } = require('../../../utils/tokenManager')
 
 function searchInputQuery(req, res) {
-    const pathName = req.pathName;
-    const qs = req.qs;
+    verifyToken(req, res)
+    const qs = req.query;
     if (!queryStringValidate(qs, ['query'])) {
         sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });
         return;

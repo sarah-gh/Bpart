@@ -6,7 +6,6 @@ const { savePost } = require('../model/operations/save')
 const {addArticle} = require('../model/operations/newArticle')
 function operationHandler(req) {
     const postData = req.body;
-
     switch (postData.operation) {
         case "like_article":
             return likeArticle;

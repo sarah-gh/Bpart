@@ -8,9 +8,11 @@ const cors = require('cors')
 const app = express();
 app.use(cors())
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '2500mb'}));
+app.use(bodyParser.urlencoded({ extended: true, limit: '2500mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json({limit: '2500mb'}));
+app.use(express.urlencoded({limit: '2500mb'}));
 
 function loadApps() {
     const appNames = c.appsDirectory;

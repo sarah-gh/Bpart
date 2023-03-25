@@ -16,6 +16,7 @@ async function readPosts(condition, limit, userId) {
                 "user".userPhoto,
                 article.articleId, 
                 article.headerPhoto, 
+                article.pdffile,
                 article.title, 
                 article.articleText,
                 article.footerPhoto,

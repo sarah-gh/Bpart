@@ -1,15 +1,17 @@
 const c = require('../config');
 
-function sendOk(res, data) {
+async function sendOk(res, data) {
     res.statusCode = c.statusCodes.SUCCESS;
     res.setHeader('Content-Type', c.contentTypes.JSON);
-    res.end(JSON.stringify(data));
+    // res.set({"Content-Type": c.contentTypes.JSON})
+    await res.end(JSON.stringify(data));
 }
 
-function sendFail(res, statusCode, data) {
+async function sendFail(res, statusCode, data) {
     res.statusCode = statusCode;
+    // res.set({"Content-Type": c.contentTypes.JSON})
     res.setHeader('Content-Type', c.contentTypes.JSON);
-    res.end(JSON.stringify(data));
+    await res.end(JSON.stringify(data));
 }
 
 module.exports = { sendOk, sendFail }

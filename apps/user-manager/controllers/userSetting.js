@@ -2,8 +2,10 @@ const c = require('../config');
 const { readProfileSetting, updateProfileSetting} = require('../model/profileSetting');
 const { sendOk, sendFail } = require('../../../utils/response-handler');
 const { queryStringValidate } = require('../../../utils/queryValidate')
+const { verifyToken } = require('../../../utils/tokenManager')
 
 function getUserInfo(req, res) {
+    verifyToken(req, res)
     const qs = req.qs;
     if (!queryStringValidate(qs, [])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });
@@ -21,6 +23,7 @@ function getUserInfo(req, res) {
         });
 }
 function postUserInfo(req, res){
+    verifyToken(req, res)
     const qs = req.qs;
     if (!queryStringValidate(qs, [])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });

@@ -14,14 +14,14 @@ async function searchPosts(searchQuery, userId) {
                 article.articleId, 
                 article.headerPhoto, 
                 article.title, 
-                article.artcleText,
+                article.articleText,
                 article.footerPhoto,
                 article.date,
                 article.readTime 
             FROM article
             LEFT JOIN "user"
                 ON article.userId = "user".userId
-            WHERE ("article".artcleText LIKE '%${word}%' AND "article".userid != ${userId}) OR 
+            WHERE ("article".articleText LIKE '%${word}%' AND "article".userid != ${userId}) OR 
             ("article".title LIKE '%${word}%' AND "article".userid != ${userId});
             `
         const response = await executeQuery(query);

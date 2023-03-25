@@ -5,6 +5,7 @@ const { queryStringValidate } = require('../../../utils/queryValidate');
 const { verifyToken } = require('../../../utils/tokenManager')
 
 function getSinglePost(req, res) {
+    verifyToken(req, res)
     const articleId = req.query.postId;
     const condition = `"article".articleId = ${articleId}`;
     let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
@@ -17,6 +18,7 @@ function getSinglePost(req, res) {
 }
 function getPosts(req, res) {
     const qs = req.query;
+    console.log('qs: ', qs);
     let condition = qs.profileid ? `"article".userid = ${qs.profileid}` : "true";
     let limit = qs.limit ? qs.limit : c.defaultLimit;
     if (qs.offset) {
@@ -33,6 +35,7 @@ function getPosts(req, res) {
         })
 }
 function getFollowingPosts(req, res) {
+    verifyToken(req, res)
     const qs = req.qs;
     if (!queryStringValidate(qs, ['limit', 'offset'])) {
         return sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });

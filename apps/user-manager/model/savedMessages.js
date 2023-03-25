@@ -10,7 +10,7 @@ async function readSavedMessages(userId, limit) {
                 article.articleId, 
                 article.headerPhoto, 
                 article.title, 
-                article.artcleText,
+                article.articleText,
                 article.date,
                 article.readTime
                 FROM "article"

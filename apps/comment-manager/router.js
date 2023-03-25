@@ -1,13 +1,8 @@
 
 const { getComments } = require('./controllers/comments')
-const dataParser = require('pionners-dataparser')
-const { verifyToken } = require('../../utils/tokenManager')
+const express = require('express');
+const router = express.Router();
 
-module.exports.routes = {
-  '/api/comments/:postId': {
-    GET: {
-      function: getComments,
-      middlewares: [dataParser, verifyToken]
-    }
-  }
-};
+router.get('/api/comments/:postId', getComments);
+
+module.exports = router;

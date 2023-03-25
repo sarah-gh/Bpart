@@ -15,12 +15,13 @@
     "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "jsonschema": "^1.4.0",
+    "nodemon": "^2.0.22",
     "pg": "^8.7.1",
-    "redis": "^3.1.2",
-    "util": "^0.12.4",
     "pioneers-router": "^1.0.22",
     "pioneers-server": "^1.0.3",
     "pioneers-token-manager": "^1.0.3",
-    "pionners-dataparser": "^1.0.2"
+    "pionners-dataparser": "^1.0.2",
+    "redis": "^3.1.2",
+    "util": "^0.12.4"
   }
 }

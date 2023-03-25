@@ -12,6 +12,7 @@ function getPhoto(req, res) {
     try {
         const photo = fs.readFileSync(photoPath);
         res.statusCode = c.statusCodes.SUCCESS;
+        // res.set({"Content-Type": `image/${extname}`})
         res.setHeader("Content-Type", `image/${extname}`)
         res.write(photo)
         res.end()

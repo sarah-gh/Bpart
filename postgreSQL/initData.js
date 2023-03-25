@@ -26,6 +26,7 @@ querySetup = `
         title text,
         articleText text,
         footerPhoto varchar(100),
+        pdfFile varchar(100),
         date varchar(100),
         readTime int,
         FOREIGN KEY(userId) REFERENCES "user"(userId)
