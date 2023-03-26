@@ -9,6 +9,7 @@ function getSinglePost(req, res) {
     const articleId = req.query.postId;
     const condition = `"article".articleId = ${articleId}`;
     let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
+    // console.log(articleId, condition);
     readPosts(condition, 1, userId)
         .then(data => sendOk(res, data))
         .catch(() => {
@@ -18,7 +19,7 @@ function getSinglePost(req, res) {
 }
 function getPosts(req, res) {
     const qs = req.query;
-    console.log('qs: ', qs);
+    // console.log('qs: ', qs);
     let condition = qs.profileid ? `"article".userid = ${qs.profileid}` : "true";
     let limit = qs.limit ? qs.limit : c.defaultLimit;
     if (qs.offset) {
@@ -36,7 +37,7 @@ function getPosts(req, res) {
 }
 function getFollowingPosts(req, res) {
     verifyToken(req, res)
-    const qs = req.qs;
+    const qs = req.query;
     if (!queryStringValidate(qs, ['limit', 'offset'])) {
         return sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });
     }

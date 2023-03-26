@@ -6,7 +6,7 @@ const { verifyToken } = require('../../../utils/tokenManager')
 
 function getUserInfo(req, res) {
     verifyToken(req, res)
-    const qs = req.qs;
+    const qs = req.query;
     if (!queryStringValidate(qs, [])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });
     }
@@ -24,7 +24,7 @@ function getUserInfo(req, res) {
 }
 function postUserInfo(req, res){
     verifyToken(req, res)
-    const qs = req.qs;
+    const qs = req.query;
     if (!queryStringValidate(qs, [])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });
     }

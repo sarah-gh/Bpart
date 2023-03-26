@@ -12,7 +12,7 @@ async function readComments(articleId, limit) {
         "comment".commentDate
         FROM "comment"
         LEFT JOIN "user" on "user".userid = "comment".userid 
-        WHERE articleId = ${articleId} limit ${limit};`;
+        WHERE articleId = ${articleId} `;
     const response = await executeQuery(query)
     return commentFormatter(response.rows)
 }
@@ -26,11 +26,11 @@ function commentFormatter(dataSet) {
             data = data.filter(a => a != item)
         }
     }
-    let refference
+    let reference
     for (item of data) {
-        refference = findRefference(item, dataSet)
+        reference = findReference(item, dataSet)
         for (i in result) {
-            if (refference == result[i].commentid) {
+            if (reference == result[i].commentid) {
                 result[i].replyComment.push(item)
             }
         }
@@ -38,7 +38,7 @@ function commentFormatter(dataSet) {
     return result
 }
 
-function findRefference(item, data) {
+function findReference(item, data) {
     let ref = item.commentid
     while (true) {
         if (item.replyto) {

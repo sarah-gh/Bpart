@@ -6,7 +6,7 @@ const { verifyToken } = require('../../../utils/tokenManager')
 
 function getSavedMessages(req, res) {
     verifyToken(req, res)
-    const qs = req.qs;
+    const qs = req.query;
     if (!queryStringValidate(qs, ['limit', 'offset'])) {
         return sendFail(res, c.statusCodes.NOT_FOUND, { message: c.errors.NOT_FOUND.message });
     }

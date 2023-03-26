@@ -3,8 +3,8 @@ const { getPosts, getSinglePost, getFollowingPosts } = require('./controllers/po
 const express = require('express');
 const router = express.Router();
 
+router.get('/api/post', getSinglePost);
 router.get('/api/posts', getPosts);
 router.get('/api/followingPosts', getFollowingPosts);
-router.get('/api/post', getSinglePost);
 
 module.exports = router;

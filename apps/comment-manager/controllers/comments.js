@@ -5,14 +5,14 @@ const { queryStringValidate } = require('../../../utils/queryValidate');
 
 function getComments(req, res) {
     const pathName = req.pathName;
-    const qs = req.qs;
+    const qs = req.query;
     if (!queryStringValidate(qs, ['limit', 'offset'])) {
         return sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });
     }
     const articleId = req.params.postId;
     let limit = qs.limit ? qs.limit : c.defaultLimit;
     if (qs.offset) {
-        limit += ` offset ${req.qs.offset}`
+        limit += ` offset ${req.query.offset}`
     }
 
     const response = readComments(articleId, limit)

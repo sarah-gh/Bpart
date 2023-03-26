@@ -1,6 +1,7 @@
 const { executeQuery } = require('../../../services/queryExecutor')
 
 async function readSavedMessages(userId, limit) {
+    console.log('readSavedMessages');
     query = `
             SELECT 
                 "user".userId,
