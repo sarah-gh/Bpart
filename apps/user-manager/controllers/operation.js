@@ -9,6 +9,7 @@ function operationRegister(req, res) {
         return sendFail(res, c.statusCodes.UNAUTHORIZED, { message: c.errors.UNAUTHORIZED.message });
     }
     const postData = req.body;
+    console.log('operationRegister: ', postData);
     const handler = operationHandler(req)
     handler(postData, req.user.userId)
         .then(() => sendOk(res, { message: c.SUCCESS_MESSAGE }))

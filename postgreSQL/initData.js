@@ -21,12 +21,6 @@ querySetup = `
         password varchar(300),
         credit varchar(100)
     );
-    create table "tokens" (
-        tokenId SERIAL PRIMARY KEY,
-        userId int,
-        token varchar(2000),
-        FOREIGN KEY(userId) REFERENCES "user"(userId)
-    );
     create table "article" (
         articleId SERIAL PRIMARY KEY,
         userId int,

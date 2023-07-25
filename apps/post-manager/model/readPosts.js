@@ -23,7 +23,8 @@ async function readPosts(condition, limit, userId) {
                     article.articleText,
                     article.footerPhoto,
                     article.date,
-                    article.readTime 
+                    article.readTime,
+                    article.price 
                 FROM article
                 LEFT JOIN "user"
                     ON "article".userId = "user".userId
