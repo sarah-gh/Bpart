@@ -11,6 +11,7 @@ async function readPosts(condition, limit, userId) {
                     (select count(*) from "like_article" where "like_article".articleId = "article".userId ) as Liked,
                     (select count(*) from "like_article" where "like_article".articleId = "article".articleId),
                     (select count(*) from "comment" where "comment".articleId = "article".articleId),
+                    (select count(*) from "download" where "download".articleId = "article".articleId and "download".userId = ${userId} ) as isPaid,
                     "user".userId,
                     "user".fname, 
                     "user".lname, 
@@ -28,11 +29,8 @@ async function readPosts(condition, limit, userId) {
                     ON "article".userId = "user".userId
                 WHERE ${condition} ORDER BY "article".articleId DESC limit ${limit} ;`
         let Results = await executeQuery(query);
-        // console.log(!!Results.rows);
         const posts = Results.rows;
-        // console.log('posts:', posts);
         for await (let element of posts) {
-            // console.log('articleid:', element.articleid);
             query = `SELECT "tag".tagName from "tag" WHERE "tag".articleId = ${element.articleid}`
             Results = await executeQuery(query);
             const tagList = [];
@@ -41,6 +39,10 @@ async function readPosts(condition, limit, userId) {
                 tagList.push(tag.tagname)
             }
             element.tag = tagList
+            if (!(+element.ispaid) && userId!==element.userid) {
+                // User has paid for the article
+                element.pdffile = '';
+            }
         }
         return posts
     } catch (error) {

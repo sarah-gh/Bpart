@@ -61,6 +61,13 @@ querySetup = `
         FOREIGN KEY(followerId) REFERENCES "user"(userId),
         FOREIGN KEY(followingId) REFERENCES "user"(userId)
     );
+    create table "download" (
+        downloadId SERIAL PRIMARY KEY,
+        userId int,
+        articleId int,
+        FOREIGN KEY(userId) REFERENCES "user"(userId),
+        FOREIGN KEY(articleId) REFERENCES "article"(articleId)
+    );
     create table "like_article" (
         likeId SERIAL PRIMARY KEY,
         articleId int,
@@ -323,6 +330,22 @@ queryFollow = `
         1
     );
 `
+
+queryDownload = `
+    INSERT INTO "download" (
+        userId,
+        articleId
+    ) VALUES
+    (
+        2,
+        3
+    ),
+    (
+        3,
+        2
+    );
+`
+
 queryLike_article = `
     INSERT INTO "like_article" (
         articleId,
