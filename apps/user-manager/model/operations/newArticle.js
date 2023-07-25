@@ -5,14 +5,15 @@ const fs = require('fs')
 async function addArticle(postData, userId) {
     try {
         let query = `
-            INSERT INTO "article" (userid, title, articletext, date, readTime) 
+            INSERT INTO "article" (userid, title, articletext, date, readTime, price) 
                 VALUES
             (
                 ${userId},
                 '${postData.title}',
                 '${postData.articletext}',
                 '${postData.date}',
-                ${postData.readTime}
+                ${postData.readTime},
+                '${postData.price}'
             )
             RETURNING *;
         `;

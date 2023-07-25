@@ -1,0 +1,37 @@
+{
+  "_from": "pionners-dataparser@^1.0.2",
+  "_id": "pionners-dataparser@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-EHvQywDJqcsd9oM+fzZcCFe4xDPm4jNS/unkN4esoG9bL7ZLY3hsbnYZ8w8PAlsWf9YzI+fgvUJW/zXkXft2nQ==",
+  "_location": "/pionners-dataparser",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "pionners-dataparser@^1.0.2",
+    "name": "pionners-dataparser",
+    "escapedName": "pionners-dataparser",
+    "rawSpec": "^1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pionners-dataparser/-/pionners-dataparser-1.0.2.tgz",
+  "_shasum": "b6a3a77cd977d0835ef3e9573f8a9845825fba3a",
+  "_spec": "pionners-dataparser@^1.0.2",
+  "_where": "C:\\Users\\Sazgar\\Desktop\\Bpart",
+  "author": "",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": " module to parse data",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "pionners-dataparser",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}

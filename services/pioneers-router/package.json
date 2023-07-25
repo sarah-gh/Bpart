@@ -1,0 +1,43 @@
+{
+  "_from": "pioneers-router@^1.0.22",
+  "_id": "pioneers-router@1.0.22",
+  "_inBundle": false,
+  "_integrity": "sha512-wlCZs6Rr5FHUrd2DLXSEHcz+9T2StxQYLcV1Zh+KBe7OrW02H6EqkPxbIJFzBYpZksCW7IB+FXOO7m0Nu13SRw==",
+  "_location": "/pioneers-router",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "pioneers-router@^1.0.22",
+    "name": "pioneers-router",
+    "escapedName": "pioneers-router",
+    "rawSpec": "^1.0.22",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.22"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pioneers-router/-/pioneers-router-1.0.22.tgz",
+  "_shasum": "7aaff26b26791f87fbadb655ecf6306c856bb76f",
+  "_spec": "pioneers-router@^1.0.22",
+  "_where": "C:\\Users\\Sazgar\\Desktop\\Bpart",
+  "author": {
+    "name": "pionners"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "a module to route web-api efficiently!",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "pioneers-router",
+  "repository": {
+    "type": "git",
+    "url": "http://igit.partdp.ir/college/developer3/pioneers/servers/pioneersroutermodule.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.22"
+}

@@ -1,0 +1,43 @@
+{
+  "_from": "pioneers-server@^1.0.3",
+  "_id": "pioneers-server@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-O54fCznT1/YCgl/ODUkWLxwbcVE9PJAdAcycCruGtZNrdReEpUjyWAeGTQKNAhDZsS6OAZM8miKsjSi+PPaQYw==",
+  "_location": "/pioneers-server",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "pioneers-server@^1.0.3",
+    "name": "pioneers-server",
+    "escapedName": "pioneers-server",
+    "rawSpec": "^1.0.3",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pioneers-server/-/pioneers-server-1.0.3.tgz",
+  "_shasum": "6d2b0a77b43241f176416b68c8c373a6f3859e3e",
+  "_spec": "pioneers-server@^1.0.3",
+  "_where": "C:\\Users\\Sazgar\\Desktop\\Bpart",
+  "author": {
+    "name": "pioneers"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "a module to create server efficiently.",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "pioneers-server",
+  "repository": {
+    "type": "git",
+    "url": "http://igit.partdp.ir/college/developer3/pioneers/servers/pioneersservermodule.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}

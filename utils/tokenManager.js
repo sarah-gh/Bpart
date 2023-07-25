@@ -1,5 +1,5 @@
 const c = require('../config')
-const { TokenManager } = require('pioneers-token-manager')
+const { TokenManager } = require('../services/pioneers-token-manager/index')
 
 const { verifyToken, generateToken } = new TokenManager(c.tokenConfig)
 
