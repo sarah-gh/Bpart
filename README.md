@@ -7,3 +7,8 @@
 - pioneers-dataparser
 - pioneers-server
 - pioneers-token-manager
+
+
+sudo systemctl restart redis-server
+
+

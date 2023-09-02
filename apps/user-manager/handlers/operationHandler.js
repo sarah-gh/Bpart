@@ -4,6 +4,7 @@ const { follow } = require('../model/operations/follow')
 const { likeArticle, likeComment } = require('../model/operations/like')
 const { savePost } = require('../model/operations/save')
 const { addArticle } = require('../model/operations/newArticle')
+const { increaseCredit } = require('../model/operations/increaseCredit')
 const { processPaymentAndSendArticleLink } = require('../model/operations/downloadArticle')
 
 function operationHandler(req) {
@@ -22,6 +23,8 @@ function operationHandler(req) {
             return addComment;
         case "newArticle":
             return addArticle;
+        case "increaseCredit":
+            return increaseCredit;
         case "downloadArticle":
             return processPaymentAndSendArticleLink;
     }

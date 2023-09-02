@@ -14,7 +14,8 @@ async function insertNewUser(data) {
             phoneNumber,
             fontFamily,
             fontSize,
-            fontColor
+            fontColor,
+            credit
             )
         VALUES 
             (
@@ -27,7 +28,8 @@ async function insertNewUser(data) {
                 '${data.phoneNumber}',
                 'bahij Helvitica',
                 1,
-                'black'
+                'black',
+                0
             ) 
             RETURNING *;`;
     console.log(query);

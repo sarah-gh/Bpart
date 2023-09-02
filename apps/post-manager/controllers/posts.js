@@ -8,8 +8,7 @@ function getSinglePost(req, res) {
     verifyToken(req, res)
     const articleId = req.query.postId;
     const condition = `"article".articleId = ${articleId}`;
-    let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
-    // console.log(articleId, condition);
+    let userId = req.user ? +req.user.userId : 0; // set userId = 0 where there is no valid token
     readPosts(condition, 1, userId)
         .then(data => sendOk(res, data))
         .catch(() => {
@@ -25,8 +24,10 @@ function getPosts(req, res) {
     if (qs.offset) {
         limit += ` offset ${qs.offset}`
     }
-    const token = verifyToken(req, res)
+    verifyToken(req, res)
+    const token = req.user
     let userId = token ? +token.userId : 0;
+    console.log('userId:::', userId);
     // let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
     readPosts(condition, limit, userId)
         .then(data => sendOk(res, data))
@@ -42,7 +43,7 @@ function getFollowingPosts(req, res) {
         return sendFail(res, c.statusCodes.BAD_REQUEST, { message: c.errors.BAD_REQUEST.message });
     }
     let condition = `"article".userid in (select followingid from "follow" where "follow".followerid = ${req.user.userId})`;
-    let userId = req.user ? req.user.userId : 0; // set userId = 0 where there is no valid token
+    let userId = req.user ? +req.user.userId : 0; // set userId = 0 where there is no valid token
     let limit = qs.limit ? qs.limit : c.defaultLimit;
     if (qs.offset) {
         limit += ` offset ${qs.offset}`

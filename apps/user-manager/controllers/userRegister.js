@@ -17,8 +17,9 @@ async function userRegister(req, res) {
     }
     insertNewUser(inputData)
         .then(user => {
+            // const token = generateToken({ "userId": userData.userid })
             const token = generateToken({ "userId": user.userid });
-            sendOk(res, { token });
+            sendOk(res, token );
         })
         .catch(err => {
             console.log(err);
