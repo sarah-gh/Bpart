@@ -53,6 +53,7 @@ async function addArticle(postData, userId) {
         }
         
         // add tags
+        console.log('postData.tag: ', postData.tag);
         const tags = postData.tag;
         query = "";
         for (let tag of tags) {

@@ -14,6 +14,7 @@ async function addComment(postData, userId) {
                 '${postData.date}'
             );
         `;
+        console.log('addComment query: ', query);
         await executeQuery(query)
     } catch (error) {
         console.log('error:: ', error);

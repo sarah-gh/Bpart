@@ -5,6 +5,7 @@ const { likeArticle, likeComment } = require('../model/operations/like')
 const { savePost } = require('../model/operations/save')
 const { addArticle } = require('../model/operations/newArticle')
 const { increaseCredit } = require('../model/operations/increaseCredit')
+const { deleteArticle } = require('../model/operations/deleteArticle')
 const { processPaymentAndSendArticleLink } = require('../model/operations/downloadArticle')
 
 function operationHandler(req) {
@@ -21,6 +22,8 @@ function operationHandler(req) {
             return savePost;
         case "newComment":
             return addComment;
+        case "deleteArticle":
+            return deleteArticle;
         case "newArticle":
             return addArticle;
         case "increaseCredit":
