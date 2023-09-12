@@ -41,7 +41,7 @@ const contentTypes = {
 
 const appDirectory = './apps';
 // const appsDirectory = ['authentication','comment-manager','post-manager','search','upload-image','user-manager'];
-const appsDirectory = ['post-manager', 'authentication', 'user-manager', 'upload-image', 'search', 'comment-manager'];
+const appsDirectory = ['post-manager', 'authentication', 'user-manager', 'upload-image', 'search', 'admin', 'comment-manager'];
 
 module.exports = {
     serverConfig,

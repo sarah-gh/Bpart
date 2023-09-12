@@ -19,7 +19,9 @@ querySetup = `
         fontSize int,
         fontColor varchar(100),
         password varchar(300),
-        credit varchar(100)
+        credit varchar(100),
+        role varchar(50),
+        blocked BOOLEAN
     );
     create table "article" (
         articleId SERIAL PRIMARY KEY,
@@ -90,7 +92,6 @@ querySetup = `
         FOREIGN KEY(articleId) REFERENCES "article"(articleId)
 	);
     `
-    
 
 queryUser = `
     INSERT INTO "user" (
@@ -110,7 +111,9 @@ queryUser = `
         fontSize,
         fontColor,
         password,
-        credit
+        credit,
+        role,
+        blocked
     ) VALUES
         (
             1,
@@ -129,7 +132,9 @@ queryUser = `
             1,
             'black',
             'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413',
-            0
+            0,
+            'user',
+            false,
         ),
         (
             2,
@@ -148,7 +153,9 @@ queryUser = `
             1,
             'black',
             'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413',
-            0
+            0,
+            'user',
+            false,
         ),
         (
             3,
@@ -167,7 +174,9 @@ queryUser = `
             1,
             'black',
             'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413',
-            0
+            0,
+            'user',
+            false,
         );
 `
 queryArticle = `

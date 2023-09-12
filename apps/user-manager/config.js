@@ -5,6 +5,7 @@ const statusCodes = {
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
     BAD_REQUEST:400,
+    BLOCKED: 403,
     CONFLICT:409
 };
 
@@ -24,6 +25,10 @@ const errors = {
     UNAUTHORIZED: {
         title: 'unauthorized',
         message: 'not valid token'
+    },
+    BLOCKED : {
+        title: 'BLOCKED',
+        message: 'You are blocked'
     },
     FORBIDDEN : {
         title: 'forbidden',

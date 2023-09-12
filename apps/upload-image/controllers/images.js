@@ -23,7 +23,6 @@ class imageManager {
             sendFail(res, c.statusCodes.NOT_FOUND, {message: c.errors.NOT_FOUND.message})
         }
     }
-    
 }
 
 module.exports = {

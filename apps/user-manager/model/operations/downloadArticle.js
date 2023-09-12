@@ -61,17 +61,27 @@ async function processPayment(articlePrice, userCredit, articleId, userId) {
 
         // فرآیند پرداخت موفق
         const paymentAmount = articlePrice * 0.7; // مبلغ 70 درصد از مبلغ مقاله
+        const paymentAmountAdmin = articlePrice * 0.3; // مبلغ 70 درصد از مبلغ مقاله
         const articleCreatorCreditQuery = `SELECT "credit" FROM "user" WHERE "userid" = ${articleCreatorId};`;
+        const articleCreatorCreditQueryAdmin = `SELECT "credit" FROM "user" WHERE "role" = 'admin';`;
+
         const articleCreatorResult = await executeQuery(articleCreatorCreditQuery);
+        const articleCreatorResultAdmin = await executeQuery(articleCreatorCreditQueryAdmin);
+
         if (articleCreatorResult.rows.length === 0) {
             throw new Error('کاربری با این شناسه یافت نشد.');
         }
         const articleCreatorCredit = parseFloat(articleCreatorResult.rows[0].credit);
         const updatedArticleCreatorCredit = (articleCreatorCredit + paymentAmount).toFixed(0);
 
+        const articleCreatorCreditAdmin = parseFloat(articleCreatorResultAdmin.rows[0].credit);
+        const updatedArticleCreatorCreditAdmin = (articleCreatorCreditAdmin + paymentAmountAdmin).toFixed(0);
+
         // افزودن مبلغ به موجودی حساب کاربری که مقاله را ایجاد کرده
         const updateArticleCreatorCreditQuery = `UPDATE "user" SET "credit" = ${updatedArticleCreatorCredit} WHERE "userid" = ${articleCreatorId};`;
+        const updateArticleCreatorCreditQueryAdmin = `UPDATE "user" SET "credit" = ${updatedArticleCreatorCreditAdmin} WHERE "role" = 'admin';`;
         await executeQuery(updateArticleCreatorCreditQuery);
+        await executeQuery(updateArticleCreatorCreditQueryAdmin);
 
         // ثبت فرآیند دانلود مقاله
         const query = `INSERT INTO "download" (userid, articleid) VALUES (${userId}, ${articleId});`;

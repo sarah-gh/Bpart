@@ -1,6 +1,6 @@
 const { executeQuery } = require('../../../../services/queryExecutor');
 
-async function deleteArticle(post, userId) {
+async function deleteArticle(post, userId, role = 'user') {
     try {
         const articleId = post.id;
 
@@ -15,9 +15,8 @@ async function deleteArticle(post, userId) {
         }
 
         const articleOwnerId = result.rows[0].userid;
-
         // اگر مالک مقاله با یوزر ای دی ورودی مطابقت داشته باشد، مقاله حذف می‌شود
-        if (articleOwnerId === userId) {
+        if (articleOwnerId === userId || role == 'admin') {
             const deleteSaveQuery = `
                 DELETE FROM "save" WHERE articleid = ${articleId};
             `;

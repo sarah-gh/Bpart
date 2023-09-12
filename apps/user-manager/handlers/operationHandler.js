@@ -23,6 +23,7 @@ function operationHandler(req) {
         case "newComment":
             return addComment;
         case "deleteArticle":
+            // debugger;
             return deleteArticle;
         case "newArticle":
             return addArticle;
