@@ -5,11 +5,11 @@ const client = new Pool(c.databaseConfig);
 
 async function executeQuery(query) {
     try {
-        if (query.includes('-')) {
-            return Promise.reject('-')
-        } else {
+        // if (query.includes('-')) {
+        //     return Promise.reject('-')
+        // } else {
             return await client.query(query)
-        }
+        // }
     } catch (error) {
         console.log(error);
     }

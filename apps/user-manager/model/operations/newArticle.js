@@ -17,6 +17,7 @@ async function addArticle(postData, userId) {
             )
             RETURNING *;
         `;
+        // debugger;
         const article = await executeQuery(query);
         const articleId = article.rows[0].articleid;
         // add article photos

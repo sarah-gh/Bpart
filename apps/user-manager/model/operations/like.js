@@ -12,6 +12,7 @@ async function likeArticle(postData, userId) {
     } else {
         query = `DELETE FROM "like_article" WHERE articleId = ${postData.articleId} AND userId = ${userId};`
     }
+    console.log(query);
     executeQuery(query)
 }
 async function likeComment(postData, userId) {
